@@ -10,20 +10,20 @@ body{
     margin-right: auto;
 }
 
-.container{
+.pedrolindo{
    display: grid;
    height: 100vh;
    grid-template-columns: 1fr 1fr 1fr 1fr;
-   grid-template-rows: 0.2fr 1.5fr 1.5fr 0.5fr;
+   grid-template-rows: 0.2fr 1.5fr 1.5fr;
    grid-template-areas: 
                         "nav nav nav nav"
-                        "aside content1 content2 content3"
-                        "aside content4 content5 content6"
+                        "aside content1 content1 content1"
+                        "aside content1 content1 content1"
                         "footer footer footer footer";
     grid-gap: 0.2rem;
     font-family: Arial, Helvetica, sans-serif;
     font: 1em;
-    color: #ffffff;
+    color: #000000;
     text-align: center;
 }
 
@@ -44,48 +44,11 @@ aside{
 }
 
 #content1{
-    background-color: rgb(136, 127, 127);
+    background-color:#50C2C2;
     grid-area: content1;
     border-radius: var(--main-radius);
     padding-top: var(--main-padding);
-    padding: 15px;
-}
-
-#content2{
-    background-color: rgb(65, 63, 61);
-    grid-area: content2;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    padding: 15px;
-}
-
-#content3{
-    background-color: rgb(202, 114, 31);
-    grid-area: content3;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    padding: 15px;
-}
-#content4{
-  background-color: rgb(131, 102, 43);
-  grid-area: content4;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  padding: 15px;
-}
-#content5{
-  background-color: rgb(0, 0, 0);
-  grid-area: content5;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  padding: 15px;
-}
-#content6{
-  background-color: rgb(122, 53, 39);
-  grid-area: content6;
-  border-radius: var(--main-radius);
-  padding-top: var(--main-padding);
-  padding: 15px;
+    padding: 80px;
 }
 
 footer{
@@ -147,6 +110,10 @@ footer{
 
   #text{
     transform: lowercase;
+  }
+
+  footer{
+    height: auto;
   }
 
     
