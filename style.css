@@ -1,121 +1,157 @@
-:root{
-    --main-radius:5px; /*Variáveis CSS*/
-    --main-padding:5px;
+:root {
+  --main-radius: 5px; /* Variáveis CSS */
+  --main-padding: 5px;
 }
 
-body{
-    max-width: 1200px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+body {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; /* Centralizar o conteúdo horizontalmente */
 }
 
-.pedrolindo{
-   display: grid;
-   height: 100vh;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
-   grid-template-rows: 0.2fr 1.5fr 1.5fr;
-   grid-template-areas: 
-                        "nav nav nav nav"
-                        "aside content1 content1 content1"
-                        "aside content1 content1 content1"
-                        "footer footer footer footer";
-    grid-gap: 0.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    font: 1em;
-    color: #000000;
-    text-align: center;
+.pedrolindo {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: repeat(4, 1fr); /* Use repeat() para simplificar */
+  grid-template-rows: 0.2fr 1.5fr 1.5fr auto; /* Defina o rodapé para auto */
+  grid-template-areas: 
+      "nav nav nav nav"
+      "aside content1 content1 content1"
+      "aside content1 content1 content1"
+      "footer footer footer footer";
+  grid-gap: 0.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px; /* Defina o tamanho da fonte em pixels */
+  color: #000000;
+  text-align: center;
 }
 
-nav{
- background-color: #50C2C2;
- grid-area: nav;
- border-radius: var(--main-radius);
- padding-top: var(--main-padding);
- padding: 15px;
+nav, aside, #content1, footer {
+  background-color: #50C2C2;
+  border-radius: var(--main-radius);
+  padding: var(--main-padding) 15px; /* Reduzindo o código repetido */
 }
 
-aside{
-    background-color: #50C2C2;
-    grid-area: aside;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    padding: 15px;
+nav {
+  grid-area: nav;
 }
 
-#content1{
-    background-color:#50C2C2;
-    grid-area: content1;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
-    padding: 80px;
+aside {
+  grid-area: aside;
 }
 
-footer{
-    background-color: #50C2C2;
-    grid-area: footer;
-    border-radius: var(--main-radius);
-    padding-top: var(--main-padding);
+#content1 {
+  grid-area: content1;
+  padding: 80px 15px; /* Reduzindo o código repetido */
+}
+
+footer {
+  grid-area: footer;
+  padding-bottom: var(--main-padding); /* Adicionando espaço no rodapé */
 }
 
 .menu {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 8px;
+  margin-right: auto;
+}
+
+.menu-items {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-items li {
+  margin-left: 15px;
+}
+
+.menu-items li:first-child {
+  margin-left: 0;
+}
+
+.menu-items li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-left: auto;
+}
+
+.search-bar input {
+  margin-right: 5px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+}
+
+#text {
+  text-transform: lowercase; /* Correção da propriedade "transform" */
+}
+
+footer {
+  /* height: auto; Não é necessário definir a altura para "auto" */
+}
+/* Estilos para telas maiores */
+@media (min-width: 768px) {
+  .pedrolindo {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 0.2fr 1.5fr 1.5fr auto;
   }
-  
-  .logo {
-    font-weight: bold;
-    font-size: 20px;
-    padding: 8px;
-    margin-right: auto;
+
+  nav, aside, #content1, footer {
+      padding: var(--main-padding) 15px;
   }
-  
+}
+
+/* Estilos para telas menores (por exemplo, dispositivos móveis) */
+@media (max-width: 767px) {
+  .pedrolindo {
+      grid-template-columns: 1fr;
+      grid-template-rows: 0.2fr 1.5fr 1.5fr;
+  }
+
+  nav, aside, #content1, footer {
+      padding: var(--main-padding) 10px; /* Reduzi o padding para economizar espaço */
+  }
+
+  .menu {
+      flex-direction: column; /* Empilhei os itens do menu verticalmente */
+      align-items: center;
+      text-align: center;
+  }
+
   .menu-items {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    justify-content: center;
+      margin-top: 10px; /* Adicionei um espaço superior aos itens do menu */
   }
-  
-  .menu-items li {
-    margin-left: 15px;
-  }
-  
-  .menu-items li:first-child {
-    margin-left: 0;
-  }
-  
-  .menu-items li a {
-    text-decoration: none;
-    color: #333;
-  }
-  
+
   .search-bar {
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    margin-left: auto;
+      flex-direction: column; /* Empilhei a barra de pesquisa verticalmente */
+      align-items: center;
+      text-align: center;
   }
-  
+
   .search-bar input {
-    margin-right: 5px;
+      margin-right: 0; /* Removi a margem direita para economizar espaço */
+      margin-top: 5px; /* Adicionei espaço superior ao campo de pesquisa */
   }
-  
+
   .search-bar button {
-    padding: 5px 10px;
+      margin-top: 5px; /* Adicionei espaço superior ao botão de pesquisa */
   }
+}
 
-  #text{
-    transform: lowercase;
-  }
-
-  footer{
-    height: auto;
-  }
-
-    
-
-  
